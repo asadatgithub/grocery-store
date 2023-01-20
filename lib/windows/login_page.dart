@@ -30,9 +30,9 @@ class _LoginPageShopKeeperState extends State<LoginPageShopKeeper> {
             color: Colors.blueAccent, size: 50)
         : Scaffold(
             resizeToAvoidBottomInset: false,
-            body: Column(children: [
-              Container(
-                child: Stack(
+            body: SingleChildScrollView(
+              child: Column(children: [
+                Stack(
                   children: <Widget>[
                     Container(
                       padding: const EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
@@ -46,185 +46,185 @@ class _LoginPageShopKeeperState extends State<LoginPageShopKeeper> {
                           style: GoogleFonts.lato(
                               fontSize: 80.0, fontWeight: FontWeight.bold)),
                     ),
-                    Container(
-                      padding:
-                          const EdgeInsets.fromLTRB(250.0, 175.0, 0.0, 0.0),
-                      child: const Text('.',
-                          style: TextStyle(
-                              fontSize: 80.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blueAccent)),
-                    )
+                    // Container(
+                    //   padding:
+                    //       const EdgeInsets.fromLTRB(250.0, 175.0, 0.0, 0.0),
+                    //   child: const Text('.',
+                    //       style: TextStyle(
+                    //           fontSize: 80.0,
+                    //           fontWeight: FontWeight.bold,
+                    //           color: Colors.blueAccent)),
+                    // )
                   ],
                 ),
-              ),
-              Container(
-                  padding:
-                      const EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: TextField(
-                            controller: emailController,
-                            style: GoogleFonts.lato(),
-                            decoration: const InputDecoration(
-                                prefixIcon: Icon(Icons.email_outlined),
-                                floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
-                                labelText: "Enter Your Email",
-                                hintText: "test@abc.com",
-                                border: OutlineInputBorder())),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: TextField(
-                            controller: passwordController,
-                            obscureText: true,
-                            enableSuggestions: false,
-                            autocorrect: false,
-                            style: GoogleFonts.lato(),
-                            decoration: const InputDecoration(
-                                prefixIcon: Icon(Icons.lock_outline),
-                                floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
-                                labelText: "Enter Your Password",
-                                hintText: "********",
-                                border: OutlineInputBorder())),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(13.0),
-                        child: Row(
-                          children: [
-                            Checkbox(
-                              value: _checkBoxValue,
-                              onChanged: (value) {
-                                setState(() {
-                                  _checkBoxValue = value!;
-                                });
-                              },
-                            ),
-                            Text("Login as Shopkeeper")
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: InkWell(
-                          onTap: () {
-                            normalLogin();
-                          },
-                          child: Container(
-                            height: 40.0,
-                            child: Material(
-                              borderRadius: BorderRadius.circular(12.0),
-                              shadowColor: Colors.blueAccent,
-                              color: Colors.blue,
-                              elevation: 2.0,
-                              child: const Center(
-                                child: Text(
-                                  'LOGIN',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Montserrat'),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: InkWell(
-                          onTap: () {
-                            guestLogin();
-                          },
-                          child: Container(
-                            height: 40.0,
-                            child: Material(
-                              borderRadius: BorderRadius.circular(12.0),
-                              shadowColor: Colors.greenAccent,
-                              color: Colors.green,
-                              elevation: 2.0,
-                              child: const Center(
-                                child: Text(
-                                  'Continue as Guest',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Montserrat'),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            googleLogin();
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.black,
-                                      style: BorderStyle.solid,
-                                      width: 1.0),
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(12.0)),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Center(
-                                      child: Image(
-                                          height: 20,
-                                          width: 20,
-                                          image: AssetImage(
-                                              'assets/images/google.png')),
-                                    ),
-                                  ),
-                                  Center(
-                                    child: Text('Log in with Google',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Montserrat')),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Row(children: <Widget>[
-                        const Expanded(child: Divider()),
+                Container(
+                    padding: const EdgeInsets.only(
+                        top: 35.0, left: 20.0, right: 20.0),
+                    child: Column(
+                      children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "OR",
-                            style: GoogleFonts.lato(),
+                          padding: const EdgeInsets.all(18.0),
+                          child: TextField(
+                              controller: emailController,
+                              style: GoogleFonts.lato(),
+                              decoration: const InputDecoration(
+                                  prefixIcon: Icon(Icons.email_outlined),
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
+                                  labelText: "Enter Your Email",
+                                  hintText: "test@abc.com",
+                                  border: OutlineInputBorder())),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: TextField(
+                              controller: passwordController,
+                              obscureText: true,
+                              enableSuggestions: false,
+                              autocorrect: false,
+                              style: GoogleFonts.lato(),
+                              decoration: const InputDecoration(
+                                  prefixIcon: Icon(Icons.lock_outline),
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
+                                  labelText: "Enter Your Password",
+                                  hintText: "********",
+                                  border: OutlineInputBorder())),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(13.0),
+                          child: Row(
+                            children: [
+                              Checkbox(
+                                value: _checkBoxValue,
+                                onChanged: (value) {
+                                  setState(() {
+                                    _checkBoxValue = value!;
+                                  });
+                                },
+                              ),
+                              Text("Login as Shopkeeper")
+                            ],
                           ),
                         ),
-                        const Expanded(child: Divider()),
-                      ]),
-                      InkWell(
-                        onTap: () {
-                          createANewAccount();
-                        },
-                        child: Text("Create A New Account",
-                            style: GoogleFonts.lato(
-                              decoration: TextDecoration.underline,
-                            )),
-                      )
-                    ],
-                  )),
-            ]),
+                        const SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: InkWell(
+                            onTap: () {
+                              normalLogin();
+                            },
+                            child: Container(
+                              height: 40.0,
+                              child: Material(
+                                borderRadius: BorderRadius.circular(12.0),
+                                shadowColor: Colors.blueAccent,
+                                color: Colors.blue,
+                                elevation: 2.0,
+                                child: const Center(
+                                  child: Text(
+                                    'LOGIN',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Montserrat'),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: InkWell(
+                            onTap: () {
+                              guestLogin();
+                            },
+                            child: Container(
+                              height: 40.0,
+                              child: Material(
+                                borderRadius: BorderRadius.circular(12.0),
+                                shadowColor: Colors.greenAccent,
+                                color: Colors.green,
+                                elevation: 2.0,
+                                child: const Center(
+                                  child: Text(
+                                    'Continue as Guest',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Montserrat'),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              googleLogin();
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.black,
+                                        style: BorderStyle.solid,
+                                        width: 1.0),
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.circular(12.0)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const <Widget>[
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Center(
+                                        child: Image(
+                                            height: 20,
+                                            width: 20,
+                                            image: AssetImage(
+                                                'assets/images/google.png')),
+                                      ),
+                                    ),
+                                    Center(
+                                      child: Text('Log in with Google',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'Montserrat')),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Row(children: <Widget>[
+                          const Expanded(child: Divider()),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "OR",
+                              style: GoogleFonts.lato(),
+                            ),
+                          ),
+                          const Expanded(child: Divider()),
+                        ]),
+                        InkWell(
+                          onTap: () {
+                            createANewAccount();
+                          },
+                          child: Text("Create A New Account",
+                              style: GoogleFonts.lato(
+                                decoration: TextDecoration.underline,
+                              )),
+                        )
+                      ],
+                    )),
+              ]),
+            ),
           );
   }
 
